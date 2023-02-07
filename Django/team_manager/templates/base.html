@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team Member Management</title>
+</head>
+<body>
+  <center>
+  <header>
+    <h1>Team Member Management</h1>
+  </header>
+  <nav>
+    <a href="{% url 'list' %}">List</a>
+    <a href="{% url 'add' %}">Add</a>
+  </nav>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</center>
+</body>
+</html>
