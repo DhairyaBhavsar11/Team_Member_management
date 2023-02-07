@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Team Member</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="first_name">First Name</label>
+  <input type="text" id="first_name" name="first_name" required>
+  <br>
+  <label for="last_name">Last Name</label>
+  <input type="text" id="last_name" name="last_name" required>
+  <br>
+  <label for="phone">Phone</label>
+  <input type="text" id="phone" name="phone" required>
+  <br>
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+  <br>
+  <label for="role">Role</label>
+  <select id="role" name="role">
+    <option value="regular">Regular</option>
+    <option value="admin">Admin</option>
+  </select>
+  <br><br>
+  <button type="submit">Save</button>
+</form>
+{% endblock %}
