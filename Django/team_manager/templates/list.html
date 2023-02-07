@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Team Members</h1>
+<p> You have {{ team_members|length }} team members</p>
+<ul>
+  {% for team_member in team_members %}
+    <li><a href="{% url 'edit' team_member.pk %}">{{ team_member.first_name }} {{ team_member.last_name }} ({{ team_member.role }})</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'add' %}">+</a>
+{% endblock %}
