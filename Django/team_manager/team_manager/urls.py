@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from members.views import list_view, add_view, edit_view, delete_view
+
+app_name = 'teammembers'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', list_view, name='list'),
+    path('add/', add_view, name='add'),
+    path('edit/<int:pk>/', edit_view, name='edit'),
+    path('delete/<int:pk>/', delete_view, name='delete'),
 ]
