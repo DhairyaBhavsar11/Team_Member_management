@@ -3,7 +3,7 @@ from .models import TeamMember
 
 def list_view(request):
     team_members = TeamMember.objects.all()
-    return render(request, 'members/templates/list.html', {'team_members': team_members})
+    return render(request, 'list.html', {'team_members': team_members})
 
 def add_view(request):
     if request.method == 'POST':
@@ -20,7 +20,7 @@ def add_view(request):
             role=role,
         )
         return redirect('list')
-    return render(request, 'members/templates/add.html')
+    return render(request, 'add.html')
 
 def edit_view(request, pk):
     team_member = TeamMember.objects.get(pk=pk)
@@ -32,7 +32,7 @@ def edit_view(request, pk):
         team_member.role = request.POST['role']
         team_member.save()
         return redirect('list')
-    return render(request, 'members/templates/edit.html', {'team_member': team_member})
+    return render(request, 'edit.html', {'team_member': team_member})
 
 def delete_view(request, pk):
     team_member = TeamMember.objects.get(pk=pk)
