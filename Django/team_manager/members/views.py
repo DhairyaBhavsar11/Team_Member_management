@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from django.shortcuts import render, redirect
 from .models import TeamMember
 
@@ -36,5 +37,9 @@ def edit_view(request, pk):
 
 def delete_view(request, pk):
     team_member = TeamMember.objects.get(pk=pk)
-    team_member.delete()
-    return redirect('list')
+    if team_member.role == TeamMember.ADMIN:
+        team_member.delete()
+        return redirect('list')
+    else:
+        messages.error(request, 'Only admin role members can be deleted')
+        return redirect('list')

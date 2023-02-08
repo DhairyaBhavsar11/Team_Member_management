@@ -1,13 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  header {
+    background-color: lightgray;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+  
+ p{
+  color: gray;
+ } 
+table{
+  width: 50%;
+  
+}
+table, th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  text-align: left;
+  
+}
 
+table a{
+  text-decoration: none;
+  color: gray;
+}
+
+table img{
+width: 80px;
+height: 80px;
+}
+
+</style>
+<header>
+  <h1>List Page</h1>
+</header>
 <h1>Team Members</h1>
 <p> You have {{ team_members|length }} team members</p>
-<ul>
+<table>
   {% for team_member in team_members %}
-    <li><a href="{% url 'edit' team_member.pk %}">{{ team_member.first_name }} {{ team_member.last_name }} ({{ team_member.role }})</a></li>
+    <tr><td><img src='https://cdn-icons-png.flaticon.com/512/149/149071.png'></td><td><a href="{% url 'edit' team_member.pk %}">{{ team_member.first_name }} {{ team_member.last_name }} ({{ team_member.role }})<br><br>{{ team_member.phone }}<br><br>{{ team_member.email }} </a></tr></td>
   {% endfor %}
-</ul>
-<a href="{% url 'add' %}">+</a>
+</table>
+<!-- <a href="{% url 'add' %}">+</a> -->
 {% endblock %}
+
+
+<!-- <tr><img src='https://cdn-icons-png.flaticon.com/512/149/149071.png'></tr> -->

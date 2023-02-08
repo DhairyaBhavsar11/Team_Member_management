@@ -2,16 +2,37 @@
 <html>
 <head>
   <title>Team Member Management</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+  }
+
+  header h1 {
+    margin: 10px;
+  }
+  
+  nav a {
+    float: right;
+    margin-top: 100px;
+    margin-right: 40px;
+    font-style: normal;
+    text-decoration: none;
+    color: blue;
+    font-size: 40px;
+    
+  }
+  
+  main {
+    padding: 20px; 
+  }
+ 
+  </style>
 </head>
 <body>
   <center>
-  <header>
-    <h1>Team Member Management</h1>
-  </header>
   <nav>
-    <a href="{% url 'list' %}">List</a>
-    <a href="{% url 'add' %}">Add</a>
-  </nav>
+    <a href="{% url 'add' %}">+</a>
+</nav>
   <main>
     {% block content %}
     {% endblock %}
